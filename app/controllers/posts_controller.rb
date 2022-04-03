@@ -1,11 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, :only => [:new, :create]
 
-  def show
-    @group = Group.find(params[:id])
-     @posts = @group.posts.recent
-  end
-
 
 
   def new
