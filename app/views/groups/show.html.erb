@@ -1,5 +1,15 @@
 <div class="col-md-8">
   <div class="grooup">
+
+    <span clss="pull-right">
+       <% if current_user && current_user.is_member_of?(@group) %>
+        <label class="label label-success"> Group member </label>
+      <% else %>
+        <<label class="label-warning"> Not Group member</label>
+      <% end %>
+    </span>
+
+
     <%= link_to("Write a Post", new_group_post_path(@group), class: "btn btn-default pull-right")%>
 
     <% if current_user && current_user == @group.user %>
@@ -31,8 +41,8 @@
 
 
     <div class="text-center">
-      <%= will_paginate @posts %>
-    </div>
+     <%= will_paginate @posts %>
+   </div>
 
 
 </div>
