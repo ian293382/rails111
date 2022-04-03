@@ -9,4 +9,24 @@
   <h2><%= @group.title %>
   <p><%= @group.description %></p>
 
+
+  <table>
+    <thead>
+      <tr>
+        <th>Content</th>
+        <th>Creator</th>
+        <th>Createred Time </th>
+      </tr>
+    </thead>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.content %></td>
+          <td><%= post.user.email %></td>
+          <td><%= post.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
 </div>
