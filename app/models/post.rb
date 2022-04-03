@@ -1,9 +1,7 @@
 class Post < ApplicationRecord
-
-  validates :title, presence: true
-
   belongs_to :user
-  belongs_to :group
+   belongs_to :group
 
+   validates :content, presence: true
   scope :recent, -> { order("created_at DESC")}
 end

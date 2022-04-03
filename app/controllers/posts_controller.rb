@@ -1,17 +1,18 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user
+  before_action :authenticate_user!, :only => [:new, :create]
 
   def show
     @group = Group.find(params[:id])
-    @posts = @group.posts.recent
+    @posts = @group.posts
   end
 
 
 
   def new
-    @group = Group.find(params[:id])
+     @group = Group.find(params[:group_id])
     @post = Post.new
   end
+
 
   def create
       @group = Group.find(params[:group_id])
@@ -30,6 +31,7 @@ class PostsController < ApplicationController
     private
 
     def post_params
-        params.require(:post).permit(:content)
-      end
-end
+      params.require(:post).permit(:content)
+    end
+
+  end

@@ -1,4 +1,4 @@
-<div class="col-md-12">
+<div class="col-md-8">
   <div class="grooup">
     <%= link_to("Write a Post", new_group_post_path(@group), class: "btn btn-default pull-right")%>
 
@@ -13,21 +13,21 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Content</th>
-        <th>Creator</th>
-        <th>Createred Time </th>
+          <th>content</th>
+          <th>creator</th>
+          <th>create time</th>
       </tr>
     </thead>
     <tbody>
-      <% @posts.each do |post| %>
-        <tr>
-          <td><%= post.content %></td>
-          <td><%= post.user.email %></td>
-          <td><%= post.created_at %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+        <% @posts.each do |post| %>
+          <tr>
+            <td><%= post.content %></td>
+           <td><%= post.user.email %></td>
+           <td><%= post.created_at %></td>
+         </tr>
+       <% end %>
+     </tbody>
+    </table>
 
 
 </div>
